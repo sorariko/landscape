@@ -66,6 +66,9 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="Area.cs" />
+    <Compile Include="LandscapeObject.cs" />
+    <Compile Include="OtherObject.cs" />
+    <Compile Include="Plant.cs" />
     <Compile Include="SunPosition.cs" />
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
