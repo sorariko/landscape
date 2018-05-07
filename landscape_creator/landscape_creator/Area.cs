@@ -20,6 +20,8 @@ namespace landscape_creator
 	public struct Polygon
 	{
 		List<Point> vertices;
+		//type: true - растение, false - другой объект
+		bool type;
 	}
 	class Area
 	{

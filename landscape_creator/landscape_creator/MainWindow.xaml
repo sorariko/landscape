@@ -5,8 +5,135 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:landscape_creator"
         mc:Ignorable="d"
-        Title="MainWindow" Height="350" Width="525">
-    <Grid>
-        
+        Title="MainWindow" Height="600" Width="800"
+        MinHeight="600" MinWidth="800">
+    <Window.Resources>
+        <Style TargetType="TextBlock">
+            <Setter Property="TextWrapping" Value="Wrap"/>
+        </Style>
+        <Style TargetType="Button">
+            <Setter Property="Background" Value="White"/>
+        </Style>
+        <Style TargetType="MenuItem">
+            <Setter Property="Background" Value="#FF60B9CE"/>
+        </Style>
+    </Window.Resources>
+    <Grid x:Name="mainGrid">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="100"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="20"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="70"/>
+        </Grid.RowDefinitions>
+        <Menu Grid.Column="0" Grid.Row="0" VerticalAlignment="Center" Background="#FF04819E">
+            <MenuItem Header="Файл">
+                <MenuItem Header="Создать новый проект"/>
+                <MenuItem Header="Открыть"/>
+                <MenuItem Header="Сохранить"/>
+            </MenuItem>
+            <MenuItem Header="Ландшафт">
+                <MenuItem Header="Изменить размер поля"/>
+                <MenuItem Header="Создать чертеж"/>
+            </MenuItem>
+            <MenuItem Header="Справка"/>
+        </Menu>
+        <Grid Grid.Column="0" Grid.Row="2" Background="#FF60B9CE">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="150"/>
+                <ColumnDefinition Width="150"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="70"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <TextBlock Grid.Column="0" Grid.Row="0" Text="Время с момента посадки:" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+            <Grid Grid.Column="0" Grid.Row="1">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <TextBox Grid.Column="0" Margin="5,0"/>
+                <ComboBox Grid.Column="1" Margin="5,0">
+                    <ComboBoxItem Content="дней"/>
+                    <ComboBoxItem Content="месяцев"/>
+                    <ComboBoxItem Content="лет"/>
+                </ComboBox>
+            </Grid>
+            <TextBlock Grid.Column="1" Grid.Row="0" Text="Шаг:" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+            <Grid Grid.Column="1" Grid.Row="1">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <TextBox Grid.Column="0" Margin="5,0"/>
+                <ComboBox Grid.Column="1" Margin="5,0">
+                    <ComboBoxItem Content="дней"/>
+                    <ComboBoxItem Content="месяцев"/>
+                    <ComboBoxItem Content="лет"/>
+                </ComboBox>
+            </Grid>
+            <Image Grid.Column="2" Grid.Row="0" HorizontalAlignment="Center" Source="Images/arrow_bottom_1.png" Margin="0,2,0,0"/>
+            <Grid Grid.Column="2" Grid.Row="1">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="30"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="30"/>
+                </Grid.ColumnDefinitions>
+                <Button Grid.Column="0" Background="Transparent" BorderThickness="0">
+                    <Image Source="Images/arrow_back.png"/>
+                </Button>
+                <Button Grid.Column="2" Background="Transparent" BorderThickness="0">
+                    <Image Source="Images/arrow_next.png"/>
+                </Button>
+                <Canvas Grid.Column="1" Height="3" Background="Black"/>
+            </Grid>
+            <TextBlock Grid.Column="2" Grid.Row="2" HorizontalAlignment="Center" Text="1"/>
+            <Grid Grid.Column="3" Grid.RowSpan="3" Margin="5">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+                <Button Grid.Column="0" Grid.Row="1">
+                    <Image Source="Images/arrow_back.png"></Image>
+                </Button>
+                <Button Grid.Column="1" Grid.Row="0">
+                    <Image Source="Images/arrow_top.png"></Image>
+                </Button>
+                <Button Grid.Column="2" Grid.Row="1">
+                    <Image Source="Images/arrow_next.png"></Image>
+                </Button>
+                <Button Grid.Column="1" Grid.Row="2">
+                    <Image Source="Images/arrow_bottom.png"></Image>
+                </Button>
+            </Grid>
+        </Grid>
+        <Canvas Grid.Column="0" Grid.Row="1" x:Name="landscapeArea">
+            <Rectangle Width="500" Height="400" Fill="Green" Canvas.Top="10" Canvas.Left="10"/>
+            <Ellipse Width="50" Height="50" Fill="Pink" Opacity="0.9" Canvas.Top="102" Canvas.Left="297"/>
+        </Canvas>
+        <StackPanel Grid.Column="1" Grid.Row="0" Grid.RowSpan="3" Background="Gray">
+            <Button Height="70" Width="70"/>
+            <TextBlock  Text="Добавить растение" HorizontalAlignment="Center"/>
+            <Button Height="70" Width="70"/>
+            <TextBlock  Text="Добавить другой объект" HorizontalAlignment="Center"/>
+            <Button Height="70" Width="70"/>
+            <TextBlock  Text="Удалить объект" HorizontalAlignment="Center"/>
+            <Button Height="70" Width="70"/>
+            <TextBlock  Text="Список всех объектов" HorizontalAlignment="Center"/>
+            <Button Height="70" Width="70"/>
+            <TextBlock  Text="Текущий объект" HorizontalAlignment="Center"/>
+        </StackPanel>
     </Grid>
 </Window>
