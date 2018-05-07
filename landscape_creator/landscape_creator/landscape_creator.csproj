@@ -65,6 +65,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Area.cs" />
     <Compile Include="SunPosition.cs" />
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
@@ -76,6 +77,7 @@
     </Compile>
     <Compile Include="Genus.cs" />
     <Compile Include="LandingRadius.cs" />
+    <Compile Include="LandscapeCreatorDBModel.cs" />
     <Compile Include="LifeForm.cs" />
     <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
@@ -83,8 +85,7 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Plant.cs" />
-    <Compile Include="PlantsDBModel.cs" />
+    <Compile Include="PlantVariety.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>

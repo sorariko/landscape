@@ -6,11 +6,11 @@ namespace landscape_creator
     using System.ComponentModel.DataAnnotations.Schema;
     using System.Data.Entity.Spatial;
 
-    [Table("Plant")]
-    public partial class Plant
+    [Table("PlantVariety")]
+    public partial class PlantVariety
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Plant()
+        public PlantVariety()
         {
             LandingRadius = new HashSet<LandingRadius>();
         }

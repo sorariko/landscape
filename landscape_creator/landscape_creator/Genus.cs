@@ -11,7 +11,7 @@ namespace landscape_creator
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Genus()
         {
-            Plant = new HashSet<Plant>();
+            PlantVariety = new HashSet<PlantVariety>();
         }
 
         public int ID { get; set; }
@@ -20,6 +20,6 @@ namespace landscape_creator
         public string Name { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Plant> Plant { get; set; }
+        public virtual ICollection<PlantVariety> PlantVariety { get; set; }
     }
 }

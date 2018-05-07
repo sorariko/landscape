@@ -22,6 +22,6 @@ namespace landscape_creator
 
         public virtual LifeForm LifeForm { get; set; }
 
-        public virtual Plant Plant { get; set; }
+        public virtual PlantVariety PlantVariety { get; set; }
     }
 }

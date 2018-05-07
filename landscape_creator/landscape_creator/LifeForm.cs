@@ -13,7 +13,7 @@ namespace landscape_creator
         public LifeForm()
         {
             LandingRadius = new HashSet<LandingRadius>();
-            Plant = new HashSet<Plant>();
+            PlantVariety = new HashSet<PlantVariety>();
         }
 
         public int ID { get; set; }
@@ -25,6 +25,6 @@ namespace landscape_creator
         public virtual ICollection<LandingRadius> LandingRadius { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Plant> Plant { get; set; }
+        public virtual ICollection<PlantVariety> PlantVariety { get; set; }
     }
 }

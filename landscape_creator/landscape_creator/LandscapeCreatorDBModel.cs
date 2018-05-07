@@ -5,23 +5,23 @@ namespace landscape_creator
 	using System.ComponentModel.DataAnnotations.Schema;
 	using System.Linq;
 
-	public partial class PlantsDBModel : DbContext
+	public partial class LandscapeCreatorDBModel : DbContext
 	{
-		public PlantsDBModel()
-			: base("name=PlantsDBConfig")
+		public LandscapeCreatorDBModel()
+			: base("name=LandscapeCreatorDBConfig")
 		{
 		}
 
 		public virtual DbSet<Genus> Genus { get; set; }
 		public virtual DbSet<LandingRadius> LandingRadius { get; set; }
 		public virtual DbSet<LifeForm> LifeForm { get; set; }
-		public virtual DbSet<Plant> Plant { get; set; }
+		public virtual DbSet<PlantVariety> PlantVariety { get; set; }
 		public virtual DbSet<SunPosition> SunPosition { get; set; }
 
 		protected override void OnModelCreating(DbModelBuilder modelBuilder)
 		{
 			modelBuilder.Entity<Genus>()
-				.HasMany(e => e.Plant)
+				.HasMany(e => e.PlantVariety)
 				.WithRequired(e => e.Genus)
 				.WillCascadeOnDelete(false);
 
@@ -32,13 +32,13 @@ namespace landscape_creator
 				.WillCascadeOnDelete(false);
 
 			modelBuilder.Entity<LifeForm>()
-				.HasMany(e => e.Plant)
+				.HasMany(e => e.PlantVariety)
 				.WithRequired(e => e.LifeForm)
 				.WillCascadeOnDelete(false);
 
-			modelBuilder.Entity<Plant>()
+			modelBuilder.Entity<PlantVariety>()
 				.HasMany(e => e.LandingRadius)
-				.WithRequired(e => e.Plant)
+				.WithRequired(e => e.PlantVariety)
 				.HasForeignKey(e => e.IDPlant)
 				.WillCascadeOnDelete(false);
 		}
