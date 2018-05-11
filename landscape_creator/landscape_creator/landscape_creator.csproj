@@ -74,6 +74,12 @@
     <Compile Include="OtherObject.cs" />
     <Compile Include="Plant.cs" />
     <Compile Include="SunPosition.cs" />
+    <Compile Include="TimeSlider.xaml.cs">
+      <DependentUpon>TimeSlider.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Win_CurrentPlant.xaml.cs">
+      <DependentUpon>Win_CurrentPlant.xaml</DependentUpon>
+    </Compile>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -86,6 +92,14 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="TimeSlider.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Win_CurrentPlant.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="PlantVariety.cs" />
