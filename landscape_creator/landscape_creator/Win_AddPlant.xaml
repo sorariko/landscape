@@ -1,0 +1,45 @@
+﻿<Window x:Class="landscape_creator.Win_AddPlant"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:landscape_creator"
+        mc:Ignorable="d"
+        Title="Win_AddPlant" Height="300" Width="300" ResizeMode="NoResize">
+    <Window.Resources>
+        <Style x:Key="fontStyle1">
+            <Setter Property="Control.FontFamily" Value="Arial Narrow"/>
+        </Style>
+        <Style TargetType="Button">
+            <Setter Property="Background" Value="#5FD2B5"/>
+            <Setter Property="Foreground" Value="White"/>
+        </Style>
+        <Style TargetType="ComboBox">
+            <Setter Property="Background" Value="#FF5FD2B5"/>
+            <Setter Property="Foreground" Value="White"/>
+        </Style>
+    </Window.Resources>
+    <Grid Background="#FFFFCC73" Style="{StaticResource fontStyle1}">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="50"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="30"/>
+        </Grid.RowDefinitions>
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <StackPanel Grid.Column="0" Margin="5">
+                <CheckBox Content="Род" x:Name="checkGenus" Checked="checkGenus_Checked" Unchecked="checkGenus_Unchecked"/>
+                <ComboBox x:Name="comboBoxGenus" SelectionChanged="comboBoxGenus_SelectionChanged"/>
+            </StackPanel>
+            <StackPanel Grid.Column="1" Margin="5">
+                <CheckBox Content="Жизненная форма" x:Name="checkLifeForm" Checked="checkLifeForm_Checked" Unchecked="checkLifeForm_Unchecked"/>
+                <ComboBox x:Name="comboBoxLifeForm" SelectionChanged="comboBoxLifeForm_SelectionChanged"/>
+            </StackPanel>
+        </Grid>
+        <ListBox Grid.Row="1" x:Name="plantsListBox" Margin="5,0" MouseDoubleClick="plantsListBox_MouseDoubleClick"/>
+        <Button Grid.Row="2" Content="Добавить" HorizontalAlignment="Center" VerticalAlignment="Center" Width="90" x:Name="addPlantButton" Click="addPlantButton_Click"/>
+    </Grid>
+</Window>

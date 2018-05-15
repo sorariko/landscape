@@ -12,10 +12,6 @@
             <RowDefinition Height="*"/>
             <RowDefinition Height="200"/>
         </Grid.RowDefinitions>
-        <!--<Grid.ColumnDefinitions>
-            <ColumnDefinition Width="*"/>
-            <ColumnDefinition Width="*"/>
-        </Grid.ColumnDefinitions>-->
         <ScrollViewer Grid.Row="0" Grid.ColumnSpan="2" VerticalScrollBarVisibility="Auto" Background="#FFC4FFE1">
             <StackPanel Margin="5,0">
                 <DockPanel>

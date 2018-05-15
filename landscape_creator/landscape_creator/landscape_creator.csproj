@@ -77,8 +77,17 @@
     <Compile Include="TimeSlider.xaml.cs">
       <DependentUpon>TimeSlider.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Win_AddOtherObject.xaml.cs">
+      <DependentUpon>Win_AddOtherObject.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Win_AddPlant.xaml.cs">
+      <DependentUpon>Win_AddPlant.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Win_CurrentPlant.xaml.cs">
       <DependentUpon>Win_CurrentPlant.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Win_PlantInfo.xaml.cs">
+      <DependentUpon>Win_PlantInfo.xaml</DependentUpon>
     </Compile>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
@@ -96,7 +105,19 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Win_AddOtherObject.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Win_AddPlant.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Win_CurrentPlant.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Win_PlantInfo.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

@@ -1,0 +1,53 @@
+﻿<Window x:Class="landscape_creator.Win_PlantInfo"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:landscape_creator"
+        mc:Ignorable="d"
+        Title="Win_PlantInfo" Height="220" Width="350">
+    <Window.Resources>
+        <Style TargetType="TextBlock">
+            <Setter Property="TextWrapping" Value="Wrap"/>
+        </Style>
+    </Window.Resources>
+    <Grid>
+        <ScrollViewer VerticalScrollBarVisibility="Auto">
+            <StackPanel Margin="5,0">
+                <DockPanel>
+                    <Image Height="50" Width="50" Source="http://semiramisgardens.ru/upload/iblock/1cf/1cf35b5c48ee14a9fca2cdd89807d295.jpg" x:Name="plantImage"/>
+                    <TextBlock Text="Название: Flamingo" Margin="2" x:Name="plantName"/>
+                </DockPanel>
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="2*"/>
+                        <ColumnDefinition Width="3*"/>
+                    </Grid.ColumnDefinitions>
+                    <TextBlock Margin="0,0,5,0" Grid.Row="0" Grid.Column="0" Text="Род:" HorizontalAlignment="Right"/>
+                    <TextBlock Grid.Row="0" Grid.Column="1" Text="Роза (шиповник)" HorizontalAlignment="Left" x:Name="inf1"/>
+                    <TextBlock Margin="0,0,5,0" Grid.Row="1" Grid.Column="0" Text="Жизненная форма:" HorizontalAlignment="Right"/>
+                    <TextBlock Grid.Row="1" Grid.Column="1" Text="Кустарник" HorizontalAlignment="Left" x:Name="inf2"/>
+                    <TextBlock Margin="0,0,5,0" Grid.Row="2" Grid.Column="0" Text="Свет:" HorizontalAlignment="Right"/>
+                    <TextBlock Grid.Row="2" Grid.Column="1" Text="Солнцелюбивое" HorizontalAlignment="Left" x:Name="inf3"/>
+                    <TextBlock Margin="0,0,5,0" Grid.Row="3" Grid.Column="0" Text="Средняя высота:" HorizontalAlignment="Right"/>
+                    <TextBlock Grid.Row="3" Grid.Column="1" Text="100 см" HorizontalAlignment="Left" x:Name="inf4"/>
+                    <TextBlock Margin="0,0,5,0" Grid.Row="4" Grid.Column="0" Text="Средняя ширина:" HorizontalAlignment="Right"/>
+                    <TextBlock Grid.Row="4" Grid.Column="1" Text="90 см" HorizontalAlignment="Left" x:Name="inf5"/>
+                    <TextBlock Margin="0,0,5,0" Grid.Row="5" Grid.Column="0" Text="Время жизни:" HorizontalAlignment="Right"/>
+                    <TextBlock Grid.Row="5" Grid.Column="1" Text="8-10 лет" HorizontalAlignment="Left" x:Name="inf6"/>
+                    <TextBlock Margin="0,0,5,0" Grid.Row="6" Grid.Column="0" Text="Время до полного созревания:" HorizontalAlignment="Right"/>
+                    <TextBlock Grid.Row="6" Grid.Column="1" Text="60 дней" HorizontalAlignment="Left" x:Name="inf7"/>
+                </Grid>
+            </StackPanel>
+        </ScrollViewer>
+    </Grid>
+</Window>
