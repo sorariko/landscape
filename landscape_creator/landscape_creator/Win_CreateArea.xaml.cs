@@ -15,31 +15,21 @@ using System.Windows.Shapes;
 namespace landscape_creator
 {
 	/// <summary>
-	/// Логика взаимодействия для Win_AddOtherObject.xaml
+	/// Логика взаимодействия для Win_CreateArea.xaml
 	/// </summary>
-	public partial class Win_AddOtherObject : Window
+	public partial class Win_CreateArea : Window
 	{
-		public Win_AddOtherObject()
+		public Win_CreateArea()
 		{
 			InitializeComponent();
 		}
 
-		private void rb1_Checked(object sender, RoutedEventArgs e)
+		private void buttonListSun_Click(object sender, RoutedEventArgs e)
 		{
 
 		}
 
-		private void rb1_1_Checked(object sender, RoutedEventArgs e)
-		{
-
-		}
-
-		private void rb2_1_Checked(object sender, RoutedEventArgs e)
-		{
-
-		}
-
-		private void rb3_1_Checked(object sender, RoutedEventArgs e)
+		private void buttonCreateArea_Click(object sender, RoutedEventArgs e)
 		{
 
 		}

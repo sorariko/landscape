@@ -54,7 +54,7 @@
                 <RowDefinition Height="*"/>
                 <RowDefinition Height="*"/>
             </Grid.RowDefinitions>
-            <local:TimeSlider Grid.Column="0" Grid.RowSpan="3"/>
+            <local:TimeSlider Grid.Column="0" Grid.RowSpan="3" x:Name="timeSlider"/>
             <Grid Grid.Column="1" Grid.RowSpan="3" Margin="5">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="*"/>
@@ -85,15 +85,15 @@
             <Ellipse Width="50" Height="50" Fill="Pink" Opacity="0.9" Canvas.Top="102" Canvas.Left="297"/>
         </Canvas>
         <StackPanel Grid.Column="1" Grid.Row="0" Grid.RowSpan="3" Background="Gray">
-            <Button Height="70" Width="70"/>
+            <Button Height="70" Width="70" x:Name="buttonAddPlant" Click="buttonAddPlant_Click"/>
             <TextBlock  Text="Добавить растение" HorizontalAlignment="Center"/>
-            <Button Height="70" Width="70"/>
+            <Button Height="70" Width="70" x:Name="buttonAddOtherObject" Click="buttonAddOtherObject_Click"/>
             <TextBlock  Text="Добавить другой объект" HorizontalAlignment="Center"/>
-            <Button Height="70" Width="70"/>
+            <Button Height="70" Width="70" x:Name="buttonDeleteObject" Click="buttonDeleteObject_Click"/>
             <TextBlock  Text="Удалить объект" HorizontalAlignment="Center"/>
-            <Button Height="70" Width="70"/>
+            <Button Height="70" Width="70" x:Name="buttonListOfObjects" Click="buttonListOfObjects_Click"/>
             <TextBlock  Text="Список всех объектов" HorizontalAlignment="Center"/>
-            <Button Height="70" Width="70"/>
+            <Button Height="70" Width="70" x:Name="buttonCurrentPlant" Click="buttonCurrentPlant_Click"/>
             <TextBlock  Text="Текущий объект" HorizontalAlignment="Center"/>
         </StackPanel>
     </Grid>

@@ -5,8 +5,51 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:landscape_creator"
         mc:Ignorable="d"
-        Title="Win_AddOtherObject" Height="300" Width="300">
+        Title="Новый объект" Height="400" Width="250">
     <Grid>
-        
+        <Grid.RowDefinitions>
+            <RowDefinition Height="150"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <StackPanel Grid.Row="0" Margin="2">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+                <Label Grid.Row="0" Grid.Column="0" Content="Длина: " HorizontalAlignment="Right"/>
+                <Label Grid.Row="1" Grid.Column="0" Content="Ширина: " HorizontalAlignment="Right"/>
+                <Label Grid.Row="2" Grid.Column="0" Content="Высота: " HorizontalAlignment="Right"/>
+                <TextBox Grid.Row="0" Grid.Column="1" Margin="2" x:Name="textBoxLength"/>
+                <TextBox Grid.Row="1" Grid.Column="1" Margin="2" x:Name="textBoxWidth"/>
+                <TextBox Grid.Row="2" Grid.Column="1" Margin="2" x:Name="textBoxHeight"/>
+                <StackPanel Orientation="Horizontal" Grid.Row="0" Grid.Column="2">
+                    <RadioButton GroupName="group1" Content="см" VerticalAlignment="Center" Margin="0,0,5,0" x:Name="rb1_1" Checked="rb1_1_Checked"/>
+                    <RadioButton GroupName="group1" Content="м" VerticalAlignment="Center" x:Name="rb1_2" Checked="rb1_1_Checked"/>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" Grid.Row="1" Grid.Column="2">
+                    <RadioButton GroupName="group2" Content="см" VerticalAlignment="Center" Margin="0,0,5,0" x:Name="rb2_1" Checked="rb2_1_Checked"/>
+                    <RadioButton GroupName="group2" Content="м" VerticalAlignment="Center" x:Name="rb2_2" Checked="rb2_1_Checked"/>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" Grid.Row="2" Grid.Column="2">
+                    <RadioButton GroupName="group3" Content="см" VerticalAlignment="Center" Margin="0,0,5,0" x:Name="rb3_1" Checked="rb3_1_Checked"/>
+                    <RadioButton GroupName="group3" Content="м" VerticalAlignment="Center" x:Name="rb3_2" Checked="rb3_1_Checked"/>
+                </StackPanel>
+                <RadioButton Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="3" GroupName="group4" Content="параллелен сторонам площадки" Margin="0,2" x:Name="rb1" Checked="rb1_Checked"/>
+                <StackPanel Orientation="Horizontal" Grid.Row="4" Grid.Column="0" Grid.ColumnSpan="3" Margin="0,2">
+                    <RadioButton GroupName="group4" Content="угол поворота: " VerticalAlignment="Center" x:Name="rb2" Checked="rb1_Checked"/>
+                    <TextBox Width="80" x:Name="textBoxAngle"/>
+                </StackPanel>
+            </Grid>
+        </StackPanel>
+        <Canvas Grid.Row="1"/>
     </Grid>
 </Window>

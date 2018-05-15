@@ -24,5 +24,30 @@ namespace landscape_creator
 		{
 			InitializeComponent();
 		}
+
+		private void buttonAddPlant_Click(object sender, RoutedEventArgs e)
+		{
+
+		}
+
+		private void buttonAddOtherObject_Click(object sender, RoutedEventArgs e)
+		{
+
+		}
+
+		private void buttonDeleteObject_Click(object sender, RoutedEventArgs e)
+		{
+
+		}
+
+		private void buttonListOfObjects_Click(object sender, RoutedEventArgs e)
+		{
+
+		}
+
+		private void buttonCurrentPlant_Click(object sender, RoutedEventArgs e)
+		{
+
+		}
 	}
 }

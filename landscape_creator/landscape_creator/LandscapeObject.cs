@@ -9,6 +9,7 @@ namespace landscape_creator
 {
 	abstract class LandscapeObject
 	{
+		int id;
 		public Point point;
 		public Point SearchPlace(List<object> objects)
 		{

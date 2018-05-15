@@ -83,8 +83,14 @@
     <Compile Include="Win_AddPlant.xaml.cs">
       <DependentUpon>Win_AddPlant.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Win_CreateArea.xaml.cs">
+      <DependentUpon>Win_CreateArea.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Win_CurrentPlant.xaml.cs">
       <DependentUpon>Win_CurrentPlant.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Win_ListOfObjects.xaml.cs">
+      <DependentUpon>Win_ListOfObjects.xaml</DependentUpon>
     </Compile>
     <Compile Include="Win_PlantInfo.xaml.cs">
       <DependentUpon>Win_PlantInfo.xaml</DependentUpon>
@@ -113,7 +119,15 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Win_CreateArea.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Win_CurrentPlant.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Win_ListOfObjects.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

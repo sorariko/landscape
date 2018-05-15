@@ -11,6 +11,8 @@ namespace landscape_creator
 	{
 		Polygon obj;
 		int height;
+		int length;
+		int width;
 		string description;
 		public OtherObject(Polygon _obj, int _height, string _desc, List<object> objects)
 		{
