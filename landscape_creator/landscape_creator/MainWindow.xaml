@@ -34,7 +34,7 @@
         </Grid.RowDefinitions>
         <Menu Grid.Column="0" Grid.Row="0" VerticalAlignment="Center" Background="#FF052D6E" Style="{StaticResource fontStyle1}">
             <MenuItem Header="Файл">
-                <MenuItem Header="Создать новый проект"/>
+                <MenuItem Header="Создать новый проект" x:Name="buttonNewProject" Click="buttonNewProject_Click"/>
                 <MenuItem Header="Открыть"/>
                 <MenuItem Header="Сохранить"/>
             </MenuItem>

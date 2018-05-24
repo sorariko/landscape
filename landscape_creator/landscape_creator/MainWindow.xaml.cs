@@ -20,6 +20,7 @@ namespace landscape_creator
 	/// </summary>
 	public partial class MainWindow : Window
 	{
+		public Area area = new Area();
 		public MainWindow()
 		{
 			InitializeComponent();
@@ -32,7 +33,8 @@ namespace landscape_creator
 
 		private void buttonAddOtherObject_Click(object sender, RoutedEventArgs e)
 		{
-
+			var addOtherObject = new Win_AddOtherObject(area);
+			addOtherObject.Show();
 		}
 
 		private void buttonDeleteObject_Click(object sender, RoutedEventArgs e)
@@ -48,6 +50,12 @@ namespace landscape_creator
 		private void buttonCurrentPlant_Click(object sender, RoutedEventArgs e)
 		{
 
+		}
+
+		private void buttonNewProject_Click(object sender, RoutedEventArgs e)
+		{
+			var newProject = new Win_CreateArea();
+			newProject.Show();
 		}
 	}
 }

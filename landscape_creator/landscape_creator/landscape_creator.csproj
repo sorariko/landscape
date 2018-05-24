@@ -95,6 +95,9 @@
     <Compile Include="Win_PlantInfo.xaml.cs">
       <DependentUpon>Win_PlantInfo.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Win_SunPositionList.xaml.cs">
+      <DependentUpon>Win_SunPositionList.xaml</DependentUpon>
+    </Compile>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -132,6 +135,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Win_PlantInfo.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Win_SunPositionList.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

@@ -10,11 +10,12 @@ namespace landscape_creator
 	class Plant: LandscapeObject
 	{
 		public PlantVariety plant;
-		List<object> radiusConflict;
-		bool sunlightConflict;
-		int currentHeight;
-		int currentWidth;
-		double growthSpeed;
+		public List<LandscapeObject> radiusConflict;
+		public bool sunlightConflict;
+		public bool otherObjectConflict;
+		public int currentHeight;
+		public int currentWidth;
+		public double growthSpeed;
 		public Plant(PlantVariety _plant, List<object> objects)
 		{
 			plant = _plant;

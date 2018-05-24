@@ -5,7 +5,12 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:landscape_creator"
         mc:Ignorable="d"
-        Title="Win_CreateArea" Height="300" Width="400">
+        Title="Win_CreateArea" Height="300" Width="455">
+    <Window.Resources>
+        <Style TargetType="TextBlock">
+            <Setter Property="TextWrapping" Value="Wrap"/>
+        </Style>
+    </Window.Resources>
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="*"/>
@@ -15,16 +20,16 @@
         <GroupBox Header="Координаты солнца" Grid.Row="1">
             <Grid>
                 <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="*"/>
-                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="2*"/>
+                    <ColumnDefinition Width="3*"/>
                 </Grid.ColumnDefinitions>
                 <StackPanel>
-                    <RadioButton x:Name="rb1_1" GroupName="group1">
+                    <RadioButton x:Name="rb1_1" GroupName="group1" IsChecked="True">
                         <RadioButton.Content>
                             <Button Content="Выбрать из списка" x:Name="buttonListSun" Click="buttonListSun_Click"/>
                         </RadioButton.Content>
                     </RadioButton>
-                    <TextBlock Text="rgegerg g n4ign4gi4n  ndgi eg egueu g e jrgoi" TextWrapping="Wrap"/>
+                    <TextBlock Text="" TextWrapping="Wrap" x:Name="textBlockSunPositionName"/>
                 </StackPanel>
                 <StackPanel Grid.Column="1">
                     <RadioButton Content="Ввести углы:" x:Name="rb1_2" GroupName="group1"/>
@@ -39,8 +44,8 @@
                         </Grid.RowDefinitions>
                         <TextBlock Text="Азимут: " HorizontalAlignment="Right"/>
                         <TextBlock Grid.Row="1" Text="Высота над горизонтом: " HorizontalAlignment="Right" TextWrapping="Wrap"/>
-                        <TextBox Grid.Column="1" Height="25" x:Name="textBoxAzimuth"/>
-                        <TextBox Grid.Column="1" Grid.Row="1" Height="25" x:Name="textBoxHeigthHorizon"/>
+                        <TextBox Grid.Column="1" Height="25" x:Name="textBoxAzimuth" PreviewTextInput="textBoxLength_PreviewTextInput"  TextChanged="textBoxLT_TextChanged"/>
+                        <TextBox Grid.Column="1" Grid.Row="1" Height="25" x:Name="textBoxHeigthHorizon" PreviewTextInput="textBoxLT_PreviewTextInput"  TextChanged="textBoxLT_TextChanged"/>
                     </Grid>
                 </StackPanel>
             </Grid>
@@ -48,13 +53,15 @@
         <GroupBox Header="Размеры площадки" Grid.Row="0">
             <Grid>
                 <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="*"/>
-                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="2*"/>
+                    <ColumnDefinition Width="3*"/>
                 </Grid.ColumnDefinitions>
                 <StackPanel>
-                    <RadioButton Content="По сторонам:" GroupName="group2" x:Name="rb2_1"/>
+                    <RadioButton Content="По координатам:" GroupName="group2" x:Name="rb2_1"/>
                     <Grid>
                         <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
                             <ColumnDefinition Width="*"/>
                             <ColumnDefinition Width="*"/>
                         </Grid.ColumnDefinitions>
@@ -62,30 +69,43 @@
                             <RowDefinition Height="*"/>
                             <RowDefinition Height="*"/>
                         </Grid.RowDefinitions>
-                        <TextBox Grid.Row="0" Grid.Column="0" Margin="2" x:Name="textBoxLT"/>
-                        <TextBox Grid.Row="0" Grid.Column="1" Margin="2" x:Name="textBoxRT"/>
-                        <TextBox Grid.Row="1" Grid.Column="0" Margin="2" x:Name="textBoxLB"/>
-                        <TextBox Grid.Row="1" Grid.Column="1" Margin="2" x:Name="textBoxRB"/>
+                        <TextBox Grid.Row="0" Grid.Column="0" Margin="2" x:Name="textBoxLT_X" PreviewTextInput="textBoxLT_PreviewTextInput" TextChanged="textBoxLT_TextChanged"/>
+                        <TextBox Grid.Row="0" Grid.Column="1" Margin="2" x:Name="textBoxLT_Y" PreviewTextInput="textBoxLT_PreviewTextInput" TextChanged="textBoxLT_TextChanged"/>
+                        <TextBox Grid.Row="0" Grid.Column="2" Margin="2" x:Name="textBoxRT_X" PreviewTextInput="textBoxLT_PreviewTextInput" TextChanged="textBoxLT_TextChanged"/>
+                        <TextBox Grid.Row="0" Grid.Column="3" Margin="2" x:Name="textBoxRT_Y" PreviewTextInput="textBoxLT_PreviewTextInput" TextChanged="textBoxLT_TextChanged"/>
+                        <TextBox Grid.Row="1" Grid.Column="0" Margin="2" x:Name="textBoxLB_X" PreviewTextInput="textBoxLT_PreviewTextInput" TextChanged="textBoxLT_TextChanged"/>
+                        <TextBox Grid.Row="1" Grid.Column="1" Margin="2" x:Name="textBoxLB_Y" PreviewTextInput="textBoxLT_PreviewTextInput" TextChanged="textBoxLT_TextChanged"/>
+                        <TextBox Grid.Row="1" Grid.Column="2" Margin="2" x:Name="textBoxRB_X" PreviewTextInput="textBoxLT_PreviewTextInput" TextChanged="textBoxLT_TextChanged"/>
+                        <TextBox Grid.Row="1" Grid.Column="3" Margin="2" x:Name="textBoxRB_Y" PreviewTextInput="textBoxLT_PreviewTextInput" TextChanged="textBoxLT_TextChanged"/>
                     </Grid>
                 </StackPanel>
                 <StackPanel Grid.Column="1">
-                    <RadioButton  Content="По координатам:" GroupName="group2" x:Name="rb2_2"/>
+                    <RadioButton  Content="По сторонам:" GroupName="group2" x:Name="rb2_2" IsChecked="True"/>
                     <Grid>
                         <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="*"/>
-                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="3*"/>
+                            <ColumnDefinition Width="2*"/>
+                            <ColumnDefinition Width="2*"/>
                         </Grid.ColumnDefinitions>
                         <Grid.RowDefinitions>
                             <RowDefinition Height="*"/>
                             <RowDefinition Height="*"/>
                             <RowDefinition Height="*"/>
                         </Grid.RowDefinitions>
-                        <TextBlock Grid.Row="0" Grid.Column="0" Text="Длина: " HorizontalAlignment="Right"/>
-                        <TextBlock Grid.Row="1" Grid.Column="0" Text="Ширина: " HorizontalAlignment="Right"/>
+                        <TextBlock Grid.Row="0" Grid.Column="0" Text="Верх/низ: " HorizontalAlignment="Right"/>
+                        <TextBlock Grid.Row="1" Grid.Column="0" Text="Лево/право: " HorizontalAlignment="Right"/>
                         <TextBlock Grid.Row="2" Grid.Column="0" Text="Угол поворота: " HorizontalAlignment="Right"/>
-                        <TextBox Grid.Row="0" Grid.Column="1" Margin="2" x:Name="textBoxLength"/>
-                        <TextBox Grid.Row="1" Grid.Column="1" Margin="2" x:Name="textBoxWidth"/>
-                        <TextBox Grid.Row="2" Grid.Column="1" Margin="2" x:Name="textBoxAngel"/>
+                        <TextBox Grid.Row="0" Grid.Column="1" Margin="2" x:Name="textBoxLength" PreviewTextInput="textBoxLength_PreviewTextInput"  TextChanged="textBoxLT_TextChanged"/>
+                        <TextBox Grid.Row="1" Grid.Column="1" Margin="2" x:Name="textBoxWidth" PreviewTextInput="textBoxLength_PreviewTextInput"  TextChanged="textBoxLT_TextChanged"/>
+                        <TextBox Grid.Row="2" Grid.Column="1" Grid.ColumnSpan="2" Margin="2" x:Name="textBoxAngle" PreviewTextInput="textBoxLT_PreviewTextInput" TextChanged="textBoxLT_TextChanged"/>
+                        <StackPanel Orientation="Horizontal" Grid.Row="0" Grid.Column="2">
+                            <RadioButton GroupName="group3" Content="см" VerticalAlignment="Center" Margin="0,0,5,0" x:Name="rb3_1" IsChecked="True"/>
+                            <RadioButton GroupName="group3" Content="м" VerticalAlignment="Center" x:Name="rb3_2" />
+                        </StackPanel>
+                        <StackPanel Orientation="Horizontal" Grid.Row="1" Grid.Column="2">
+                            <RadioButton GroupName="group4" Content="см" VerticalAlignment="Center" Margin="0,0,5,0" x:Name="rb4_1" IsChecked="True"/>
+                            <RadioButton GroupName="group4" Content="м" VerticalAlignment="Center" x:Name="rb4_2"/>
+                        </StackPanel>
                     </Grid>
                 </StackPanel>
             </Grid>

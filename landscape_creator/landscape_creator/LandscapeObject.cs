@@ -7,7 +7,7 @@ using System.Windows;
 
 namespace landscape_creator
 {
-	abstract class LandscapeObject
+	abstract public class LandscapeObject
 	{
 		int id;
 		public Point point;

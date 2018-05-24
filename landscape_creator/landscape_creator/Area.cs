@@ -12,10 +12,10 @@ namespace landscape_creator
 	{
 		// l - left, r - right
 		// b - bottom, t - top
-		public double P_lb;
-		public double P_lt;
-		public double P_rt;
-		public double P_rb;
+		public Point P_lb;
+		public Point P_lt;
+		public Point P_rt;
+		public Point P_rb;
 	}
 	public struct Polygon
 	{
@@ -23,7 +23,7 @@ namespace landscape_creator
 		////type: true - растение, false - другой объект
 		//bool type;
 	}
-	class Area
+	public class Area
 	{
 		//координаты площадки
 		CornerPoints coordinates;
@@ -35,13 +35,17 @@ namespace landscape_creator
 		Point3D sun;
 		MainWindow main;
 		#region Создание площадки
-		public Area(double p1, double p2, double p3, double p4, int azimuth, int height, MainWindow _main)
+		public Area()
+		{
+
+		}
+		public Area(Point p1, Point p2, Point p3, Point p4, int azimuth, int height)
 		{
 			CreateAreaPosition(p1, p2, p3, p4);
 			CreateSunPosition(azimuth, height);
 			main = _main;
 		}
-		public Area(double length, double width, double angle, int azimuth, int height, MainWindow _main)
+		public Area(double length, double width, double angle, int azimuth, int height)
 		{
 			CreateAreaPosition(length, width, angle);
 			CreateSunPosition(azimuth, height);
@@ -53,7 +57,7 @@ namespace landscape_creator
 
 		}
 		//методы, определяюшие положенние площадки по заданным параметрам
-		private void CreateAreaPosition(double p1, double p2, double p3, double p4)
+		private void CreateAreaPosition(Point p1, Point p2, Point p3, Point p4)
 		{
 
 		}
@@ -65,17 +69,18 @@ namespace landscape_creator
 		#region Добавление нового объекта
 		public void AddObject(LandscapeObject obj)
 		{
-			obj.point = SearchPlace(obj);
+			//ИД задать
+			//obj.point = SearchPlace(obj);
 			objects.Add(obj);
 			//доб. тень
 			//пересчет теней
 			//отрисовка
 		}
-		public Point SearchPlace(LandscapeObject obj)
+		public List<Point> SearchPlaceOtherObject(Polygon polygon)
 		{
-			Point point = new Point(0,0);
-			///////
-			return point;
+			List<Point> points = new List<Point>();
+			////
+			return points;
 		}
 		#endregion
 		#region Удаление объекта
@@ -104,21 +109,36 @@ namespace landscape_creator
 		}
 		private void CheckLandingRadius(Plant _plant)
 		{
-			int lf = _plant.plant.LifeFormID;
-			foreach (var item in objects)
+			//int lf = _plant.plant.LifeFormID;
+			int n = objects.Count;
+			List<int> index = new List<int>();
+			for(int i = 0; i < n; i++)
 			{
-				if(item is Plant && item != _plant)
+				if (objects[i] is Plant && objects[i] != _plant)
 				{
-					Plant _item = (Plant)item;
+					Plant _item = (Plant)objects[i];
 					double x1 = _plant.point.X, y1 = _plant.point.Y, x2 = _item.point.X, y2 = _item.point.Y;
 					int R1 = _plant.plant.LandingRadius.Where(x => x.IDForm == _item.plant.LifeFormID).Select(y => y.Radius).First();
 					int R2 = _item.plant.LandingRadius.Where(x => x.IDForm == _plant.plant.LifeFormID).Select(y => y.Radius).First();
 					double L1 = R1 + R2;
 					double L2 = Math.Sqrt(Math.Pow(x2 - x1, 2) + Math.Pow(y2 - y1, 2));
-					if(L2 < L1)
+					if (L2 < L1)
 					{
-						//добавление в списки
+						((Plant)objects[i]).radiusConflict.Add(_plant);
+						_plant.radiusConflict.Add(objects[i]);
 					}
+				}
+				else
+				{
+					////поиск пересечений с объектами???? смотрим не принадлежит ли центр растения многоугольнику
+					//double x1 = ((OtherObject)objects[i]).obj.vertices[0].X, x2 = ((OtherObject)objects[i]).obj.vertices[1].X,
+					//	y1 = ((OtherObject)objects[i]).obj.vertices[0].Y, y2 = ((OtherObject)objects[i]).obj.vertices[1].Y,
+					//	x3 = ((OtherObject)objects[i]).obj.vertices[2].X, x4 = ((OtherObject)objects[i]).obj.vertices[3].X,
+					//	y3 = ((OtherObject)objects[i]).obj.vertices[2].Y, y4 = ((OtherObject)objects[i]).obj.vertices[3].Y;
+					//if (x1 == x2 || y1 == y2)
+					//{
+					//	if(_plant.point.X >= x1 && _plant.point.X <= x4 && _plant.point.Y >= y1)
+					//}
 				}
 			}
 		}
