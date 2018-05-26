@@ -10,13 +10,15 @@
         <Style TargetType="TextBlock">
             <Setter Property="TextWrapping" Value="Wrap"/>
         </Style>
+        <local:ConverterImagePath x:Key="converter"/>
+        <local:ConverterSunlight x:Key="converter1"/>
     </Window.Resources>
     <Grid>
         <ScrollViewer VerticalScrollBarVisibility="Auto">
             <StackPanel Margin="5,0">
                 <DockPanel>
-                    <Image Height="50" Width="50" Source="http://semiramisgardens.ru/upload/iblock/1cf/1cf35b5c48ee14a9fca2cdd89807d295.jpg" x:Name="plantImage"/>
-                    <TextBlock Text="Название: Flamingo" Margin="2" x:Name="plantName"/>
+                    <Image Height="50" Width="50" Source="{Binding Image, Converter={StaticResource converter}}" x:Name="plantImage"/>
+                    <TextBlock Text="{Binding FullName}" Margin="2" x:Name="plantName"/>
                 </DockPanel>
                 <Grid>
                     <Grid.RowDefinitions>
@@ -33,19 +35,19 @@
                         <ColumnDefinition Width="3*"/>
                     </Grid.ColumnDefinitions>
                     <TextBlock Margin="0,0,5,0" Grid.Row="0" Grid.Column="0" Text="Род:" HorizontalAlignment="Right"/>
-                    <TextBlock Grid.Row="0" Grid.Column="1" Text="Роза (шиповник)" HorizontalAlignment="Left" x:Name="inf1"/>
+                    <TextBlock Grid.Row="0" Grid.Column="1" Text="{Binding Genus.Name, StringFormat=- {0}}" HorizontalAlignment="Left" x:Name="inf1"/>
                     <TextBlock Margin="0,0,5,0" Grid.Row="1" Grid.Column="0" Text="Жизненная форма:" HorizontalAlignment="Right"/>
-                    <TextBlock Grid.Row="1" Grid.Column="1" Text="Кустарник" HorizontalAlignment="Left" x:Name="inf2"/>
+                    <TextBlock Grid.Row="1" Grid.Column="1" Text="{Binding LifeForm.Name, StringFormat=- {0}}" HorizontalAlignment="Left" x:Name="inf2"/>
                     <TextBlock Margin="0,0,5,0" Grid.Row="2" Grid.Column="0" Text="Свет:" HorizontalAlignment="Right"/>
-                    <TextBlock Grid.Row="2" Grid.Column="1" Text="Солнцелюбивое" HorizontalAlignment="Left" x:Name="inf3"/>
+                    <TextBlock Grid.Row="2" Grid.Column="1" Text="{Binding Sunlight, Converter={StaticResource converter1}, StringFormat=- {0}}" HorizontalAlignment="Left" x:Name="inf3"/>
                     <TextBlock Margin="0,0,5,0" Grid.Row="3" Grid.Column="0" Text="Средняя высота:" HorizontalAlignment="Right"/>
-                    <TextBlock Grid.Row="3" Grid.Column="1" Text="100 см" HorizontalAlignment="Left" x:Name="inf4"/>
+                    <TextBlock Grid.Row="3" Grid.Column="1" Text="{Binding AverageHeight, StringFormat=- {0} см}" HorizontalAlignment="Left" x:Name="inf4"/>
                     <TextBlock Margin="0,0,5,0" Grid.Row="4" Grid.Column="0" Text="Средняя ширина:" HorizontalAlignment="Right"/>
-                    <TextBlock Grid.Row="4" Grid.Column="1" Text="90 см" HorizontalAlignment="Left" x:Name="inf5"/>
+                    <TextBlock Grid.Row="4" Grid.Column="1" Text="{Binding AverageWidth, StringFormat=- {0} см}" HorizontalAlignment="Left" x:Name="inf5"/>
                     <TextBlock Margin="0,0,5,0" Grid.Row="5" Grid.Column="0" Text="Время жизни:" HorizontalAlignment="Right"/>
-                    <TextBlock Grid.Row="5" Grid.Column="1" Text="8-10 лет" HorizontalAlignment="Left" x:Name="inf6"/>
+                    <TextBlock Grid.Row="5" Grid.Column="1" Text="{Binding LifeTime, StringFormat=- {0} лет}" HorizontalAlignment="Left" x:Name="inf6"/>
                     <TextBlock Margin="0,0,5,0" Grid.Row="6" Grid.Column="0" Text="Время до полного созревания:" HorizontalAlignment="Right"/>
-                    <TextBlock Grid.Row="6" Grid.Column="1" Text="60 дней" HorizontalAlignment="Left" x:Name="inf7"/>
+                    <TextBlock Grid.Row="6" Grid.Column="1" Text="{Binding TimeToAdult, StringFormat=- {0} дней}" HorizontalAlignment="Left" x:Name="inf7"/>
                 </Grid>
             </StackPanel>
         </ScrollViewer>

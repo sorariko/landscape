@@ -7,19 +7,21 @@ using System.Windows;
 
 namespace landscape_creator
 {
-	class Plant: LandscapeObject
+	public class Plant: LandscapeObject
 	{
-		public PlantVariety plant;
-		public List<LandscapeObject> radiusConflict;
-		public bool sunlightConflict;
-		public bool otherObjectConflict;
-		public int currentHeight;
-		public int currentWidth;
-		public double growthSpeed;
-		public Plant(PlantVariety _plant, List<object> objects)
+		public PlantVariety plant { get; set; }
+		public List<LandscapeObject> radiusConflict { get; set; }
+		public bool sunlightConflict { get; set; }
+		public bool otherObjectConflict { get; set; }
+		public string otherObjectDescription { get; set; }
+		public int currentHeight { get; set; }
+		public int currentWidth { get; set; }
+		public double growthSpeed { get; set; }
+		public Plant(PlantVariety _plant, int days)
 		{
 			plant = _plant;
-			point = SearchPlace(objects);
+			//вычислить текущие данные и прочее
+			//point = SearchPlace(objects);
 		}
 	}
 }

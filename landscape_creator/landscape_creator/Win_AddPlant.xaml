@@ -21,7 +21,8 @@
     </Window.Resources>
     <Grid Background="#FFFFCC73" Style="{StaticResource fontStyle1}">
         <Grid.RowDefinitions>
-            <RowDefinition Height="50"/>
+            <RowDefinition Height="45"/>
+            <RowDefinition Height="30"/>
             <RowDefinition Height="*"/>
             <RowDefinition Height="30"/>
         </Grid.RowDefinitions>
@@ -31,15 +32,26 @@
                 <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
             <StackPanel Grid.Column="0" Margin="5">
-                <CheckBox Content="Род" x:Name="checkGenus" Checked="checkGenus_Checked" Unchecked="checkGenus_Unchecked"/>
-                <ComboBox x:Name="comboBoxGenus" SelectionChanged="comboBoxGenus_SelectionChanged"/>
+                <CheckBox Content="Род" x:Name="checkGenus" Checked="checkGenus_Checked" Unchecked="checkGenus_Checked"/>
+                <ComboBox x:Name="comboBoxGenus" SelectionChanged="comboBoxGenus_SelectionChanged" ItemsSource="{Binding GenusList, Mode=TwoWay}" SelectedItem="{Binding SelectedGenus, Mode=TwoWay}" DisplayMemberPath="Name"/>
             </StackPanel>
             <StackPanel Grid.Column="1" Margin="5">
-                <CheckBox Content="Жизненная форма" x:Name="checkLifeForm" Checked="checkLifeForm_Checked" Unchecked="checkLifeForm_Unchecked"/>
-                <ComboBox x:Name="comboBoxLifeForm" SelectionChanged="comboBoxLifeForm_SelectionChanged"/>
+                <CheckBox Content="Жизненная форма" x:Name="checkLifeForm" Checked="checkLifeForm_Checked" Unchecked="checkLifeForm_Checked"/>
+                <ComboBox x:Name="comboBoxLifeForm" SelectionChanged="comboBoxLifeForm_SelectionChanged" ItemsSource="{Binding LifeFormList,Mode=TwoWay}" SelectedItem="{Binding SelectedLifeForm, Mode=TwoWay}" DisplayMemberPath="Name"/>
             </StackPanel>
         </Grid>
-        <ListBox Grid.Row="1" x:Name="plantsListBox" Margin="5,0" MouseDoubleClick="plantsListBox_MouseDoubleClick"/>
-        <Button Grid.Row="2" Content="Добавить" HorizontalAlignment="Center" VerticalAlignment="Center" Width="90" x:Name="addPlantButton" Click="addPlantButton_Click"/>
+        <DockPanel Grid.Row="1">
+            <CheckBox DockPanel.Dock="Right" Content="Все " x:Name="checkBoxAll" Checked="checkBoxAll_Checked" Unchecked="checkBoxAll_Checked" VerticalAlignment="Center"/>
+            <Label Content="Поиск:" DockPanel.Dock="Left" VerticalAlignment="Center"/>
+            <TextBox x:Name="textBoxSearch" TextChanged="textBoxSearch_TextChanged" Height="20" Margin="5"/>
+        </DockPanel>
+        <ListBox Grid.Row="2" x:Name="plantsListBox" Margin="5,0" MouseDoubleClick="plantsListBox_MouseDoubleClick" ItemsSource="{Binding PlantList, Mode=TwoWay}" SelectedItem="{Binding SelectedPlant, Mode=TwoWay}">
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <TextBlock Text="{Binding FullName}" />
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
+        <Button Grid.Row="3" Content="Добавить" HorizontalAlignment="Center" VerticalAlignment="Center" Width="90" x:Name="addPlantButton" Click="addPlantButton_Click"/>
     </Grid>
 </Window>

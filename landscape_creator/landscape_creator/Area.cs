@@ -43,13 +43,13 @@ namespace landscape_creator
 		{
 			CreateAreaPosition(p1, p2, p3, p4);
 			CreateSunPosition(azimuth, height);
-			main = _main;
+			//main = _main;
 		}
 		public Area(double length, double width, double angle, int azimuth, int height)
 		{
 			CreateAreaPosition(length, width, angle);
 			CreateSunPosition(azimuth, height);
-			main = _main;
+			//main = _main;
 		}
 		//метод, определяющий координаты солнца по азимуту и высоте над горизонтом
 		private void CreateSunPosition(int azimuth, int height)

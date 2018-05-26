@@ -5,38 +5,75 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:landscape_creator"
         mc:Ignorable="d"
-        Title="Win_CurrentPlant" Height="400" Width="300"
+        Title="{Binding CurrentPlant.plant.FullName}" Height="450" Width="350"
         MinWidth="300" MinHeight="400">
+    <Window.Resources>
+        <Style TargetType="TextBlock">
+            <Setter Property="TextWrapping" Value="Wrap"/>
+        </Style>
+        <local:ConverterImagePath x:Key="converter" />
+        <local:ConverterSunlight x:Key="converter1"/>
+    </Window.Resources>
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="*"/>
             <RowDefinition Height="200"/>
         </Grid.RowDefinitions>
-        <ScrollViewer Grid.Row="0" Grid.ColumnSpan="2" VerticalScrollBarVisibility="Auto" Background="#FFC4FFE1">
+        <ScrollViewer VerticalScrollBarVisibility="Auto">
             <StackPanel Margin="5,0">
                 <DockPanel>
-                    <Image Height="50" Width="50" Source="http://semiramisgardens.ru/upload/iblock/1cf/1cf35b5c48ee14a9fca2cdd89807d295.jpg"/>
-                    <TextBlock Text="Название: Flamingo" Margin="2"/>
+                    <Image Height="70" Width="70" Source="{Binding plant.Image, Converter={StaticResource converter}}" x:Name="plantImage"/>
+                    <TextBlock Text="{Binding plant.FullName, StringFormat=Название: {0}}" Margin="2" x:Name="plantName"/>
                 </DockPanel>
-                <TextBlock Text="Род: Роза (шиповник)"/>
-                <TextBlock Text="Жизненная форма: Кустарник"/>
-                <TextBlock Text="Свет: Солнцелюбивое"/>
-                <TextBlock Text="Средняя высота: 100 см"/>
-                <TextBlock Text="Средняя ширина: 90 см"/>
-                <TextBlock Text="Время жизни: 8-10 лет"/>
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="2*"/>
+                        <ColumnDefinition Width="3*"/>
+                    </Grid.ColumnDefinitions>
+                    <TextBlock Margin="0,0,5,0" Grid.Row="0" Grid.Column="0" Text="Род:" HorizontalAlignment="Right"/>
+                    <TextBlock Grid.Row="0" Grid.Column="1" Text="{Binding plant.Genus.Name, StringFormat=- {0}}" HorizontalAlignment="Left" x:Name="textBlockGenus"/>
+                    <TextBlock Margin="0,0,5,0" Grid.Row="1" Grid.Column="0" Text="Жизненная форма:" HorizontalAlignment="Right"/>
+                    <TextBlock Grid.Row="1" Grid.Column="1" Text="{Binding plant.LifeForm.Name, StringFormat=- {0}}" HorizontalAlignment="Left" x:Name="textBlockLifeForm"/>
+                    <TextBlock Margin="0,0,5,0" Grid.Row="2" Grid.Column="0" Text="Свет:" HorizontalAlignment="Right"/>
+                    <TextBlock Grid.Row="2" Grid.Column="1" Text="{Binding plant.Sunlight, Converter={StaticResource converter1}, StringFormat=- {0}}" HorizontalAlignment="Left" x:Name="textBlockSunligth"/>
+                    <TextBlock Margin="0,0,5,0" Grid.Row="3" Grid.Column="0" Text="Средняя высота:" HorizontalAlignment="Right"/>
+                    <TextBlock Grid.Row="3" Grid.Column="1" Text="{Binding plant.AverageHeight, StringFormat=- {0} см}" HorizontalAlignment="Left" x:Name="textBlockAverageHeight"/>
+                    <TextBlock Margin="0,0,5,0" Grid.Row="4" Grid.Column="0" Text="Средняя ширина:" HorizontalAlignment="Right"/>
+                    <TextBlock Grid.Row="4" Grid.Column="1" Text="{Binding plant.AverageWidth, StringFormat=- {0} см}" HorizontalAlignment="Left" x:Name="textBlockAverageWidth"/>
+                    <TextBlock Margin="0,0,5,0" Grid.Row="5" Grid.Column="0" Text="Время жизни:" HorizontalAlignment="Right"/>
+                    <TextBlock Grid.Row="5" Grid.Column="1" Text="{Binding plant.LifeTime, StringFormat=- {0} лет}" HorizontalAlignment="Left" x:Name="textBlockLifeTime"/>
+                    <TextBlock Margin="0,0,5,0" Grid.Row="6" Grid.Column="0" Text="Время до полного созревания:" HorizontalAlignment="Right"/>
+                    <TextBlock Grid.Row="6" Grid.Column="1" Text="{Binding plant.TimeToAdult, StringFormat=- {0} дней}" HorizontalAlignment="Left" x:Name="textBlockTimeToAdult"/>
+                </Grid>
             </StackPanel>
         </ScrollViewer>
         <Grid Grid.Row="1" Background="#FFC4FFE1">
             <GroupBox Header="Ошибки">
                 <DockPanel>
-                    <CheckBox Content="нарушена освещенность" DockPanel.Dock="Top" Margin="0,2" IsEnabled="False"/>
-                    <ListBox>
-                        <ListBoxItem Content="Близко к ..."/>
-                        <ListBoxItem Content="Близко к ..."/>
-                        <ListBoxItem Content="Близко к ..."/>
-                        <ListBoxItem Content="Близко к ..."/>
-                        <ListBoxItem Content="Близко к ..."/>
-                    </ListBox>
+                    <CheckBox Content="Нарушена освещенность" IsChecked="{Binding sunlightConflict}" DockPanel.Dock="Top" Margin="0,2" IsEnabled="False" x:Name="checkBoxConflictSunligth"/>
+                    <CheckBox Content="{Binding otherObjectDescription, StringFormat=Близко к {0}}" IsChecked="{Binding otherObjectConflict}" DockPanel.Dock="Top" Margin="0,2" IsEnabled="False" x:Name="checkBoxConflictOtherObject"/>
+                    <TextBlock Text="Близко к:" DockPanel.Dock="Top"/>
+                    <DataGrid AutoGenerateColumns="False" IsReadOnly="True" x:Name="dataGridConflictRadiusList" ItemsSource="{Binding radiusConflict}" DockPanel.Dock="Bottom">
+                        <DataGrid.Columns>
+                            <DataGridTextColumn 
+                                Header="ID"
+                                Width="*"
+                                Binding="{Binding id}"/>
+                            <DataGridTextColumn 
+                                Header="Название"
+                                Width="5*"
+                                Binding="{Binding plant.FullName}"/>
+                        </DataGrid.Columns>
+                    </DataGrid>
                 </DockPanel>
             </GroupBox>
         </Grid>

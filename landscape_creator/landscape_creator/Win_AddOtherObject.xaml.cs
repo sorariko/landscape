@@ -67,7 +67,6 @@ namespace landscape_creator
 			polygon.vertices = points;
 			OtherObject obj = new OtherObject(point, polygon, height,length,width,desc);
 			area.AddObject(obj);
-			MessageBox.Show("Объект добавлен!");
 		}
 		private List<Point> CreateNewPolygon(int length, int width)
 		{

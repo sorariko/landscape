@@ -66,6 +66,8 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="Area.cs" />
+    <Compile Include="ConverterImagePath.cs" />
+    <Compile Include="ConverterSunlight.cs" />
     <Compile Include="Genus.cs" />
     <Compile Include="LandingRadius.cs" />
     <Compile Include="LandscapeCreatorDBModel.cs" />

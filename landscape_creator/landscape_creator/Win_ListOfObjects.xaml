@@ -17,20 +17,20 @@
         </Grid.RowDefinitions>
         <Label Grid.Row="0" Grid.Column="0" Content="Растения:" HorizontalAlignment="Center"/>
         <Label Grid.Row="0" Grid.Column="1" Content="Другие объекты:" HorizontalAlignment="Center"/>
-        <DataGrid Grid.Row="1" Grid.Column="0" x:Name="dataGridPlants" Margin="5">
+        <DataGrid AutoGenerateColumns="False" IsReadOnly="True" Grid.Row="1" Grid.Column="0" x:Name="dataGridPlants" Margin="5" ItemsSource="{Binding PlantsList}">
             <DataGrid.Columns>
-                <DataGridTextColumn Binding="{x:Null}" ClipboardContentBinding="{x:Null}" Header="Название"/>
-                <DataGridTextColumn Binding="{x:Null}" ClipboardContentBinding="{x:Null}" Header="Кол-во"/>
-                <DataGridTextColumn Binding="{x:Null}" ClipboardContentBinding="{x:Null}" Header="Высота"/>
-                <DataGridTextColumn Binding="{x:Null}" ClipboardContentBinding="{x:Null}" Header="Ширина"/>
+                <DataGridTextColumn Binding="{Binding fullName}" Header="Название"/>
+                <DataGridTextColumn Binding="{Binding count}"  Header="Кол-во"/>
+                <DataGridTextColumn Binding="{Binding height}" Header="Высота"/>
+                <DataGridTextColumn Binding="{Binding width}"  Header="Ширина"/>
             </DataGrid.Columns>
         </DataGrid>
-        <DataGrid Grid.Row="1" Grid.Column="1" x:Name="dataGridOtherObjects" Margin="5">
+        <DataGrid AutoGenerateColumns="False" IsReadOnly="True" Grid.Row="1" Grid.Column="1" x:Name="dataGridOtherObjects" Margin="5" ItemsSource="{Binding OtherObjectsList}">
             <DataGrid.Columns>
-                <DataGridTextColumn Binding="{x:Null}" ClipboardContentBinding="{x:Null}" Header="Описание"/>
-                <DataGridTextColumn Binding="{x:Null}" ClipboardContentBinding="{x:Null}" Header="Высота"/>
-                <DataGridTextColumn Binding="{x:Null}" ClipboardContentBinding="{x:Null}" Header="Длина"/>
-                <DataGridTextColumn Binding="{x:Null}" ClipboardContentBinding="{x:Null}" Header="Ширина"/>
+                <DataGridTextColumn Binding="{Binding description}" ClipboardContentBinding="{x:Null}" Header="Описание"/>
+                <DataGridTextColumn Binding="{Binding height}" ClipboardContentBinding="{x:Null}" Header="Высота"/>
+                <DataGridTextColumn Binding="{Binding length}" ClipboardContentBinding="{x:Null}" Header="Длина"/>
+                <DataGridTextColumn Binding="{Binding width}" ClipboardContentBinding="{x:Null}" Header="Ширина"/>
             </DataGrid.Columns>
         </DataGrid>
     </Grid>
